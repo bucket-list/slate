@@ -2,6 +2,10 @@
 
 > To initialize the client, use this code:
 
+```shell
+# N/A, click on another language tab for example
+```
+
 ```ruby
 require 'bucket-list'
 
@@ -77,6 +81,4 @@ Encode a get request like this:
 
 Encode a post request like this:
 
-`1403755197367https://api.adventurebucketlist.com/v1/tours{"name":"BTC_USD","side":"buy","orderType":"limit","quantity":1,"price":600.01}`
-
-Still not sure?  Find code examples in [Node.js](https://github.com/buttercoin/buttercoinsdk-node/blob/master/index.js#L32), [PHP](https://github.com/buttercoin/buttercoinsdk-php/blob/master/src/Client/ButtercoinClient.php#L144), [Python](https://github.com/buttercoin/buttercoinsdk-python/blob/master/buttercoin/api.py#L101), and [Ruby](https://github.com/buttercoin/buttercoinsdk-ruby/blob/master/lib/buttercoin/client.rb#L91).
+`1403755197367https://api.adventurebucketlist.com/v1/tours{"title": "Super Fun Activity","description": "This tour is super fun","rating": "All Levels","required": ["shirt", "shoes"]}`

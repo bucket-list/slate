@@ -1,7 +1,8 @@
 ---
-title: API Reference
+title: API Introduction
 
 language_tabs:
+  - shell
   - php
   - ruby
   - python
@@ -13,9 +14,7 @@ toc_footers:
 includes:
   - introduction
   - authentication
-  - public
-  - tours
-  - customers
+  - activities
   - bookings
   - pagination
   - rate
