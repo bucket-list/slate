@@ -1,10 +1,10 @@
 # Bookings
 
-This is how you make bookings.
+The bookings endpoint allows you access to Adventure Bucket List's real time bookings engine.
 
 ## Get Booking
 
-This endpoint retrieves a single booking with the given ID.
+This endpoint retrieves a single booking with the given ID.  You can only retrieve information about bookings that you placed on the system.
 
 ### HTTP Request
 
@@ -39,6 +39,8 @@ youths | Number of youths on the reservation
 notes | Notes from the customer to activity operator
 
 ## Cancel Booking
+
+This endpoint cancels a single booking with the given ID.  You can only cancel bookings that you placed on the system.
 
 ### HTTP Request
 
