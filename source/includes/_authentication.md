@@ -60,7 +60,7 @@ X-ABL-Date: <CURRENT_TIMESTAMP>
 
 > The client will automatically sign your requests with the proper headers.
 
-The Adventure Bucket List API provides a publicly accessible endpoint to query tours. Without authentication, this endpoint is subject to Rate Limits.
+The Adventure Bucket List API provides a publicly accessible endpoint to query tours.
 
 <aside class="warning">
 You must always keep your API Keys secure to make sure no one can access your account.  If you think a key might be compromised, simply revoke your API key [here](https://www.adventurebucketlist.com/#/api).

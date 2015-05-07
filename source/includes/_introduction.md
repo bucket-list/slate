@@ -1,7 +1,7 @@
 # Introduction to API
 
 ```shell
-$ curl -i https://api.adventurebucketlist.com/v1/tour/1
+$ curl -i https://api.adventurebucketlist.com/v1/activities/1
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
 X-Rate-Limit-Limit: 120
