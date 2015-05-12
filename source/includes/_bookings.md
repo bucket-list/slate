@@ -56,6 +56,8 @@ $client->getBookingByUrl($url);
 ?>
 ```
 
+> Expected return value
+
 ```shell
 $ curl -i https://api.adventurebucketlist.com/v1/bookings/1
 HTTP/1.1 200 OK

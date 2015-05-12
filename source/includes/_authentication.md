@@ -63,7 +63,7 @@ X-ABL-Date: <CURRENT_TIMESTAMP>
 The Adventure Bucket List API provides a publicly accessible endpoint to query tours.
 
 <aside class="warning">
-You must always keep your API Keys secure to make sure no one can access your account.  If you think a key might be compromised, simply revoke your API key [here](https://www.adventurebucketlist.com/#/api).
+You must always keep your API Keys secure to make sure no one can access your account.  If you think a key might be compromised, simply revoke your API key in the dashboard.
 </aside>
 
 *If you are building your own client for the API...*

@@ -9,7 +9,7 @@ language_tabs:
   - javascript
 
 toc_footers:
-  - <a href='https://dashboard.adventurebucketlist.com'>Sign Up for a Developer Key</a>
+  - <a href='https://dashboard.adventurebucketlist.com/#/api'>Sign Up for a Developer Key</a>
 
 includes:
   - introduction
