@@ -15,6 +15,7 @@ includes:
   - introduction
   - authentication
   - activities
+  - events
   - bookings
   - pagination
   - rate

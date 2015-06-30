@@ -22,7 +22,7 @@ client.get_activities(query)
 
 ```javascript
 // Get all activities with the following query (page limit applies)
-var query = { "price": [50, 100] }
+var query = { "price": [50, 100] };
 client.getActivities(query, function (err, activities) {
   console.log("activities err", err);
   console.log("activities", activities);
@@ -32,7 +32,7 @@ client.getActivities(query, function (err, activities) {
 ```php
 <?php
 // Get all activities with the following query (page limit applies)
-query = { "price" => [50, 100] }
+query = { "price" => [50, 100] };
 $client->getActivities($query);
 ?>
 ```
@@ -40,7 +40,7 @@ $client->getActivities($query);
 > Expected return value
 
 ```shell
-$ curl -i https://api.adventurebucketlist.com/v1/activities/1
+$ curl -i https://api.adventurebucketlist.com/v1/activities
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=UTF-8
 X-Rate-Limit-Limit: 120
