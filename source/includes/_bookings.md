@@ -67,47 +67,47 @@ X-Rate-Limit-Remaining: 119
 X-Rate-Limit-Reset: 1424380431341
 
 {
-  "bookingRef": "ylg0XOYE99EIycAjWrnB",
-  "customer": {
-    "fullName": "Phil Miller",
-    "email": "phil@miller.com",
-    "phone": "16506663333",
-    "location": {
-      "street_address": "123 Main St",
-      "city": "New York",
-      "state": "NY",
-      "country": "US",
-      "coordinates": [100.5,200.1]
-    }
-  },
-  "title": "Intermediate Skiing Lessons 4/15/2015 10:00 AM",
-  "startTime" : "2014-05-06T17:00:00Z",
-  "endTime": "2014-05-06T20:00:00Z",
-  "status": "refunded",
-  "children": 0,
-  "youths": 0,
-  "adults": 0,
-  "notes": "Please get my son back in one piece",
-  "transactions": [
-    {
-      "children": 0,
-      "youths": 1,
-      "adults": 0,
-      "subtotal": 100,
-      "paidTaxes" : [ { "description" : "VAT", "amount" : 5.13 } ],
-      "paidFees" : [ { "description" : "Service Charge", "amount" : 2.04 } ],
-      "total" : 107.17
-    },
-    {
-      "children": 0,
-      "youths": -1,
-      "adults": 0,
-      "subtotal": -100,
-      "paidTaxes" : [ { "description" : "VAT Refund", "amount" : -5.13 } ],
-      "paidFees" : [ { "description" : "Service Charge Refund", "amount" : -2.04 } ],
-      "total" : -107.17
-    }
-  ]
+   "bookingId":"1",
+   "notes":"These are my test notes",
+   "title":"Hummingbird Walking Tour",
+   "attendees":{
+      "adult":1,
+      "youth":0
+   },
+   "status":"active",
+   "transactions": [
+      {
+         "type":"payment",
+         "attendees":{
+            "adult":1,
+            "youth":0
+         },
+         "subtotal":20,
+         "total":21.9,
+         "created":"2015-07-01T03:14:06.712Z",
+         "paymentMethod":"cash"
+      }
+   ],
+   "customer": {
+      "fullName":"Kevin Adams",
+      "location": {
+         "streetAddress":"123 Main Street",
+         "city":"San Jose",
+         "state":"California",
+         "country":"United States",
+         "location": {
+            "coordinates": [
+               -121.88316800000001,
+               37.3511049
+            ],
+            "type":"Point"
+         },
+         "type":"customer",
+         "tag":"Main Location"
+      },
+      "email":"kevinadams77@yahoo.com",
+      "phoneNumber":"6506191125"
+   }
 }
 ```
 
@@ -121,96 +121,94 @@ booking.startTime # "2014-05-06T13:15:30Z"
 ```python
 # Dict Object
 {
-  "bookingRef": "ylg0XOYE99EIycAjWrnB",
-  "customer": {
-    "fullName": "Phil Miller",
-    "email": "phil@miller.com",
-    "phone": "16506663333",
-    "location": {
-      "street_address": "123 Main St",
-      "city": "New York",
-      "state": "NY",
-      "country": "US",
-      "coordinates": [100.5,200.1]
-    }
-  },
-  "title": "Intermediate Skiing Lessons 4/15/2015 10:00 AM",
-  "startTime" : "2014-05-06T17:00:00Z",
-  "endTime": "2014-05-06T20:00:00Z",
-  "status": "refunded",
-  "paymentMethod": "cash",
-  "children": 0,
-  "youths": 0,
-  "adults": 0,
-  "notes": "Please get my son back in one piece",
-  "transactions": [
-    {
-      "children": 0,
-      "youths": 1,
-      "adults": 0,
-      "subtotal": 100,
-      "paidTaxes" : [ { "description" : "VAT", "amount" : 5.13 } ],
-      "paidFees" : [ { "description" : "Service Charge", "amount" : 2.04 } ],
-      "total" : 107.17
-    },
-    {
-      "children": 0,
-      "youths": -1,
-      "adults": 0,
-      "subtotal": -100,
-      "paidTaxes" : [ { "description" : "VAT Refund", "amount" : -5.13 } ],
-      "paidFees" : [ { "description" : "Service Charge Refund", "amount" : -2.04 } ],
-      "total" : -107.17
-    }
-  ]
+   "bookingId":"1",
+   "notes":"These are my test notes",
+   "title":"Hummingbird Walking Tour",
+   "attendees":{
+      "adult":1,
+      "youth":0
+   },
+   "status":"active",
+   "transactions": [
+      {
+         "type":"payment",
+         "attendees":{
+            "adult":1,
+            "youth":0
+         },
+         "subtotal":20,
+         "total":21.9,
+         "created":"2015-07-01T03:14:06.712Z",
+         "paymentMethod":"cash"
+      }
+   ],
+   "customer": {
+      "fullName":"Kevin Adams",
+      "location": {
+         "streetAddress":"123 Main Street",
+         "city":"San Jose",
+         "state":"California",
+         "country":"United States",
+         "location": {
+            "coordinates": [
+               -121.88316800000001,
+               37.3511049
+            ],
+            "type":"Point"
+         },
+         "type":"customer",
+         "tag":"Main Location"
+      },
+      "email":"kevinadams77@yahoo.com",
+      "phoneNumber":"6506191125"
+   }
 }
 ```
 
 ```javascript
 // Json Object
 {
-  "bookingRef": "ylg0XOYE99EIycAjWrnB",
-  "title": "Intermediate Skiing Lessons 4/15/2015 10:00 AM",
-  "startTime" : "2014-05-06T17:00:00Z",
-  "endTime": "2014-05-06T20:00:00Z",
-  "status": "refunded",
-  "paymentMethod": "cash",
-  "children": 0,
-  "youths": 0,
-  "adults": 0,
-  "notes": "Please get my son back in one piece",
-  "customer": {
-    "fullName": "Phil Miller",
-    "email": "phil@miller.com",
-    "phone": "16506663333",
-    "location": {
-      "street_address": "123 Main St",
-      "city": "New York",
-      "state": "NY",
-      "country": "US",
-      "coordinates": [100.5,200.1]
-    }
-  },
-  "transactions": [
-    {
-      "children": 0,
-      "youths": 1,
-      "adults": 0,
-      "subtotal": 100,
-      "paidTaxes" : [ { "description" : "VAT", "amount" : 5.13 } ],
-      "paidFees" : [ { "description" : "Service Charge", "amount" : 2.04 } ],
-      "total" : 107.17
-    },
-    {
-      "children": 0,
-      "youths": -1,
-      "adults": 0,
-      "subtotal": -100,
-      "paidTaxes" : [ { "description" : "VAT Refund", "amount" : -5.13 } ],
-      "paidFees" : [ { "description" : "Service Charge Refund", "amount" : -2.04 } ],
-      "total" : -107.17
-    }
-  ]
+   "bookingId":"1",
+   "notes":"These are my test notes",
+   "title":"Hummingbird Walking Tour",
+   "attendees":{
+      "adult":1,
+      "youth":0
+   },
+   "status":"active",
+   "transactions": [
+      {
+         "type":"payment",
+         "attendees":{
+            "adult":1,
+            "youth":0
+         },
+         "subtotal":20,
+         "total":21.9,
+         "created":"2015-07-01T03:14:06.712Z",
+         "paymentMethod":"cash"
+      }
+   ],
+   "customer": {
+      "fullName":"Kevin Adams",
+      "location": {
+         "streetAddress":"123 Main Street",
+         "city":"San Jose",
+         "state":"California",
+         "country":"United States",
+         "location": {
+            "coordinates": [
+               -121.88316800000001,
+               37.3511049
+            ],
+            "type":"Point"
+         },
+         "type":"customer",
+         "tag":"Main Location"
+      },
+      "email":"kevinadams77@yahoo.com",
+      "phoneNumber":"6506191125"
+   }
 }
 ```
 
@@ -218,48 +216,47 @@ booking.startTime # "2014-05-06T13:15:30Z"
 <?php
 // Array Object
 [
-  "bookingRef" => "ylg0XOYE99EIycAjWrnB",
-  "customer" => [
-    "fullName" => "Phil Miller",
-    "email" => "phil@miller.com",
-    "phone" => "16506663333",
-    "location" => [
-      "street_address" => "123 Main St",
-      "city" => "New York",
-      "state" => "NY",
-      "country" => "US",
-      "coordinates" => [100.5,200.1]
-    ]
-  ],
-  "title" => "Intermediate Skiing Lessons 4/15/2015 10:00 AM",
-  "startTime" => "2014-05-06T17:00:00Z",
-  "endTime" => "2014-05-06T20:00:00Z",
-  "status" => "refunded",
-  "paymentMethod" => "cash",
-  "children" => 0,
-  "youths" => 0,
-  "adults" => 0,
-  "notes" => "Please get my son back in one piece",
-  "transactions" => [
-    [
-      "children": 0,
-      "youths": 1,
-      "adults": 0,
-      "subtotal": 100,
-      "paidTaxes" : [ [ "description" : "VAT", "amount" : 5.13 ] ],
-      "paidFees" : [ [ "description" : "Service Charge", "amount" : 2.04 ] ],
-      "total" : 107.17
-    ],
-    [
-      "children": 0,
-      "youths": -1,
-      "adults": 0,
-      "subtotal": -100,
-      "paidTaxes" : [ [ "description" : "VAT Refund", "amount" : -5.13 ] ],
-      "paidFees" : [ [ "description" : "Service Charge Refund", "amount" : -2.04 ] ],
-      "total" : -107.17
-    ]
-  ]
+   "bookingId" => "1",
+   "notes" => "These are my test notes",
+   "title" => "Hummingbird Walking Tour",
+   "attendees" => [
+      "adult" => 1,
+      "youth" => 0
+   ],
+   "status" => "active",
+   "transactions" => [
+      [
+         "type" => "payment",
+         "attendees" => [
+            "adult" => 1,
+            "youth" => 0
+         ],
+         "subtotal" => 20,
+         "total" => 21.9,
+         "created" => "2015-07-01T03 => 14 => 06.712Z",
+         "paymentMethod" => "cash"
+      ]
+   ],
+   "customer" => [
+      "fullName" => "Kevin Adams",
+      "location" => [
+         "streetAddress" => "123 Main Street",
+         "city" => "San Jose",
+         "state" => "California",
+         "country" => "United States",
+         "location" => [
+            "coordinates" => [
+               -121.88316800000001,
+               37.3511049
+            ],
+            "type" => "Point"
+         ],
+         "type" => "customer",
+         "tag" => "Main Location"
+      ],
+      "email" => "kevinadams77@yahoo.com",
+      "phoneNumber" => "6506191125"
+   ]
 ]
 ?>
 ```
@@ -282,12 +279,12 @@ ID | The ID of the booking to retrieve
 ```ruby
 # booking a customer with 1 adult and 1 youth
 booking = {
-  :eventId => "",
+  :eventId => "8b8ctkgnngr2pi1cotb872oubg_20150415T170000Z",
   :fullName => "Phil Miller",
   :email => "phil@miller.com",
-  :phone => "16506225555",
+  :phoneNumber => "16506225555",
   :location => {
-    :street_address => "123 Main St",
+    :streetAddress => "123 Main St",
     :city => "New York",
     :state => "NY",
     :country => "US",
@@ -307,9 +304,9 @@ booking = {
   "eventId": "8b8ctkgnngr2pi1cotb872oubg_20150415T170000Z",
   "fullName": "Phil Miller",
   "email": "phil@miller.com",
-  "phone": "16506225555",
+  "phoneNumber": "16506225555",
   "location": {
-    "street_address": "123 Main St",
+    "streetAddress": "123 Main St",
     "city": "New York",
     "state": "NY",
     "country": "US",
@@ -329,12 +326,12 @@ booking = {
   "eventId": "8b8ctkgnngr2pi1cotb872oubg_20150415T170000Z",
   "fullName": "Phil Miller",
   "email": "phil@miller.com",
-  "phone": "16506225555",
+  "phoneNumber": "16506225555",
   "adults": 1,
   "youths": 1,
   "notes": "Please have them back in one piece",
   "location": {
-    "street_address": "123 Main St",
+    "streetAddress": "123 Main St",
     "city": "New York",
     "state": "NY",
     "country": "US",
@@ -352,9 +349,9 @@ $booking = {
   "eventId" => "8b8ctkgnngr2pi1cotb872oubg_20150415T170000Z",
   "fullName" => "Phil Miller",
   "email" => "phil@miller.com",
-  "phone" => "16506225555",
+  "phoneNumber" => "16506225555",
   "location" => {
-    "street_address" => "123 Main St",
+    "streetAddress" => "123 Main St",
     "city" => "New York",
     "state" => "NY",
     "country" => "US",
@@ -411,8 +408,8 @@ Parameter | Description
 eventId | The ID of the event the customer wishes to book
 fullName | Customer first and last name
 email | Customer email address
-phone | Customer phone number
-location | Json Object e.g. { street_address:'123 Main St', city:'San Jose', state:'CA', country:'US', coordinates:[100.5, 200.1] }
+Number | Customer phone number
+location | Json Object e.g. { streetAddress:'123 Main St', city:'San Jose', state:'CA', country:'US', coordinates:[100.5, 200.1] }
 adults | Number of adults on the reservation
 children | Number of children on the reservation
 youths | Number of youths on the reservation

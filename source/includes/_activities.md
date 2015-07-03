@@ -48,52 +48,79 @@ X-Rate-Limit-Remaining: 119
 X-Rate-Limit-Reset: 1424380431341
 
 {
-  "activities": [
+    "activities": [
     {
-      "id":"552ea021a09742a705853cf8"
-      "title":"High Seas Catamaran Adventure",
-      "operator": "Sea Breeze Adventures",
-      "startDate":"Wed Apr 15 2015 00:00:00 GMT-0700 (PDT)",
-      "endDate":"Wed Apr 29 2015 00:00:00 GMT-0700 (PDT)",
-      "tz":"America/Los_Angeles",
-      "youthPrice":50,
-      "adultPrice":100,
-      "category":"Land",
-      "rating":"Beginners",
-      "mainDescription":"This text can be between 200 and 1000 characters.",
-      "image_lg":"https://images.adventurebucketlist.com/blue.jpg",
-      "image_array":["https://images.adventurebucketlist.com/blue.jpg"],
-      "addons":[{"amount":14.00,"label":"Lunch","description":"Your choice of sandwich, chips and soda"}],
-      "taxes":[{"type":"percentage","amount":5.13,"description":"VAT"}],
-      "unifiedDuration":false,
-      "unifiedOcc":false,
-      "unifiedPrice":true,
-      "whatIncluded":["snorkel","fins","light snack"],
-      "requirements":["must be able to swim"],
-      "whatToBring":["sunscreen","swimsuit","sunglasses","towel"],
-      "location":[
-        {
-          "locationTag":"Main Location",
-          "coordinates":[-121.8983,37.3],
-          "country":"United States",
-          "state":"California",
-          "city":"San Jose",
-          "street_address":"664 N 2nd St, San Jose, CA 95112, USA"
-        }
-      ],
-      "timeslots":[
-        {
-          "daysRunning":[1,3,6],
-          "deposit":0,
-          "startTime":"2015-04-15T17:00:00.000Z",
-          "minOcc":1,
-          "maxOcc":7,
-          "duration":3,
-          "eventId":"8b8ctkgnngr2pi1cotb872oubg"
-        }
-      ]
+        "tz":"America/Mexico_City",
+        "title":"Surfing in Tofino",
+        "mainDescription":"Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or deep face of a moving wave, which is usually carrying the surfer toward the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or in rivers in the form of a standing wave or tidal bore. However, surfers can also utilize artificial waves such as those from boat wakes and the waves created in artificial wave pools.",
+        "rating":"Intermediate",
+        "category":"Water",
+        "companyName":"Worldwide Surf Adventures",
+        "location": {
+            "streetAddress":"10 Main Street, Vancouver, BC V6J, Canada",
+            "city":"Vancouver",
+            "state":"British Columbia",
+            "country":"Canada",
+            "location": {
+                "coordinates": [
+                    -123.1383701,
+                    49.2686033
+                ],
+                "type":"Point"
+            },
+            "type":"tour",
+            "tag":"Main Location"
+        },
+        "image":"https://photos.ablsolution.com/photo1",
+        "status":"active",
+        "images": [
+            "https://photos.ablsolution.com/photo1.jpg",
+            "https://photos.ablsolution.com/photo2.jpg"
+        ],
+        "whatIncluded": [
+            "Lunch",
+            "Transportation",
+            "Lessons"
+        ],
+        "requirements": [
+            "Must be able to swim"
+        ],
+        "whatToBring": [
+            "bathing suit",
+            "Sunscreen"
+        ],
+        "charges": [
+            {
+                "description":"gst",
+                "amount":7,
+                "type":"tax"
+            }
+        ],
+        "timeslots":[
+            {
+                "user":"558b0101c59ff947062f8f68",
+                "title":"Surfing in Tofino",
+                "startTime":"2015-06-25T14:15:00.000Z",
+                "endTime":"2015-06-25T20:15:00.000Z",
+                "duration":6,
+                "daysRunning":[0,1,2,3],
+                "maxOcc":5,
+                "minOcc":2,
+                "charges":[
+                    {
+                        "description":"Adult Price",
+                        "type":"adult",
+                        "amount":120
+                    },
+                    {
+                        "description":"Youth Price",
+                        "type":"youth",
+                        "amount":105
+                    }
+                ]
+            }
+        ]
     }
-  ]
 }
 
 ```
@@ -111,158 +138,240 @@ end
 ```python
 # Dict Object
 {
-  "activities": [
+    "activities": [
     {
-      "id":"552ea021a09742a705853cf8"
-      "title":"High Seas Catamaran Adventure",
-      "operator": "Sea Breeze Adventures",
-      "startDate":"Wed Apr 15 2015 00:00:00 GMT-0700 (PDT)",
-      "endDate":"Wed Apr 29 2015 00:00:00 GMT-0700 (PDT)",
-      "tz":"America/Los_Angeles",
-      "youthPrice":50,
-      "adultPrice":100,
-      "category":"Land",
-      "rating":"Beginners",
-      "mainDescription":"This text can be between 200 and 1000 characters.",
-      "image_lg":"https://images.adventurebucketlist.com/blue.jpg",
-      "image_array":["https://images.adventurebucketlist.com/blue.jpg"],
-      "addons":[{"amount":14.00,"label":"Lunch","description":"Your choice of sandwich, chips and soda"}],
-      "taxes":[{"type":"percentage","amount":5.13,"description":"VAT"}],
-      "unifiedDuration":false,
-      "unifiedOcc":false,
-      "unifiedPrice":true,
-      "whatIncluded":["snorkel","fins","light snack"],
-      "requirements":["must be able to swim"],
-      "whatToBring":["sunscreen","swimsuit","sunglasses","towel"],
-      "location":[
-        {
-          "locationTag":"Main Location",
-          "coordinates":[-121.8983,37.3],
-          "country":"United States",
-          "state":"California",
-          "city":"San Jose",
-          "street_address":"664 N 2nd St, San Jose, CA 95112, USA"
-        }
-      ],
-      "timeslots":[
-        {
-          "daysRunning":[1,3,6],
-          "deposit":0,
-          "startTime":"2015-04-15T17:00:00.000Z",
-          "minOcc":1,
-          "maxOcc":7,
-          "duration":3,
-          "eventId":"8b8ctkgnngr2pi1cotb872oubg"
-        }
-      ]
-    }
-  ]
+        "tz":"America/Mexico_City",
+        "title":"Surfing in Tofino",
+        "mainDescription":"Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or deep face of a moving wave, which is usually carrying the surfer toward the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or in rivers in the form of a standing wave or tidal bore. However, surfers can also utilize artificial waves such as those from boat wakes and the waves created in artificial wave pools.",
+        "rating":"Intermediate",
+        "category":"Water",
+        "companyName":"Worldwide Surf Adventures",
+        "location": {
+            "streetAddress":"10 Main Street, Vancouver, BC V6J, Canada",
+            "city":"Vancouver",
+            "state":"British Columbia",
+            "country":"Canada",
+            "location": {
+                "coordinates": [
+                    -123.1383701,
+                    49.2686033
+                ],
+                "type":"Point"
+            },
+            "type":"tour",
+            "tag":"Main Location"
+        },
+        "image":"https://photos.ablsolution.com/photo1",
+        "status":"active",
+        "images": [
+            "https://photos.ablsolution.com/photo1.jpg",
+            "https://photos.ablsolution.com/photo2.jpg"
+        ],
+        "whatIncluded": [
+            "Lunch",
+            "Transportation",
+            "Lessons"
+        ],
+        "requirements": [
+            "Must be able to swim"
+        ],
+        "whatToBring": [
+            "bathing suit",
+            "Sunscreen"
+        ],
+        "charges": [
+            {
+                "description":"gst",
+                "amount":7,
+                "type":"tax"
+            }
+        ],
+        "timeslots":[
+            {
+                "user":"558b0101c59ff947062f8f68",
+                "title":"Surfing in Tofino",
+                "startTime":"2015-06-25T14:15:00.000Z",
+                "endTime":"2015-06-25T20:15:00.000Z",
+                "duration":6,
+                "daysRunning":[0,1,2,3],
+                "maxOcc":5,
+                "minOcc":2,
+                "charges":[
+                    {
+                        "description":"Adult Price",
+                        "type":"adult",
+                        "amount":120
+                    },
+                    {
+                        "description":"Youth Price",
+                        "type":"youth",
+                        "amount":105
+                    }
+                ]
+            }
+        ]
+    }]
 }
 ```
 
 ```javascript
 // Json Object
 {
-  "activities": [
+    "activities": [
     {
-      "id":"552ea021a09742a705853cf8"
-      "title":"High Seas Catamaran Adventure",
-      "operator": "Sea Breeze Adventures",
-      "startDate":"Wed Apr 15 2015 00:00:00 GMT-0700 (PDT)",
-      "endDate":"Wed Apr 29 2015 00:00:00 GMT-0700 (PDT)",
-      "tz":"America/Los_Angeles",
-      "youthPrice":50,
-      "adultPrice":100,
-      "category":"Land",
-      "rating":"Beginners",
-      "mainDescription":"This text can be between 200 and 1000 characters.",
-      "image_lg":"https://images.adventurebucketlist.com/blue.jpg",
-      "image_array":["https://images.adventurebucketlist.com/blue.jpg"],
-      "addons":[{"amount":14.00,"label":"Lunch","description":"Your choice of sandwich, chips and soda"}],
-      "taxes":[{"type":"percentage","amount":5.13,"description":"VAT"}],
-      "unifiedDuration":false,
-      "unifiedOcc":false,
-      "unifiedPrice":true,
-      "whatIncluded":["snorkel","fins","light snack"],
-      "requirements":["must be able to swim"],
-      "whatToBring":["sunscreen","swimsuit","sunglasses","towel"],
-      "location":[
-        {
-          "locationTag":"Main Location",
-          "coordinates":[-121.8983,37.3],
-          "country":"United States",
-          "state":"California",
-          "city":"San Jose",
-          "street_address":"664 N 2nd St, San Jose, CA 95112, USA"
-        }
-      ],
-      "timeslots":[
-        {
-          "daysRunning":[1,3,6],
-          "deposit":0,
-          "startTime":"2015-04-15T17:00:00.000Z",
-          "minOcc":1,
-          "maxOcc":7,
-          "duration":3,
-          "eventId":"8b8ctkgnngr2pi1cotb872oubg"
-        }
-      ]
-    }
-  ]
+        "tz":"America/Mexico_City",
+        "title":"Surfing in Tofino",
+        "mainDescription":"Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or deep face of a moving wave, which is usually carrying the surfer toward the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or in rivers in the form of a standing wave or tidal bore. However, surfers can also utilize artificial waves such as those from boat wakes and the waves created in artificial wave pools.",
+        "rating":"Intermediate",
+        "category":"Water",
+        "companyName":"Worldwide Surf Adventures",
+        "location": {
+            "streetAddress":"10 Main Street, Vancouver, BC V6J, Canada",
+            "city":"Vancouver",
+            "state":"British Columbia",
+            "country":"Canada",
+            "location": {
+                "coordinates": [
+                    -123.1383701,
+                    49.2686033
+                ],
+                "type":"Point"
+            },
+            "type":"tour",
+            "tag":"Main Location"
+        },
+        "image":"https://photos.ablsolution.com/photo1",
+        "status":"active",
+        "images": [
+            "https://photos.ablsolution.com/photo1.jpg",
+            "https://photos.ablsolution.com/photo2.jpg"
+        ],
+        "whatIncluded": [
+            "Lunch",
+            "Transportation",
+            "Lessons"
+        ],
+        "requirements": [
+            "Must be able to swim"
+        ],
+        "whatToBring": [
+            "bathing suit",
+            "Sunscreen"
+        ],
+        "charges": [
+            {
+                "description":"gst",
+                "amount":7,
+                "type":"tax"
+            }
+        ],
+        "timeslots":[
+            {
+                "user":"558b0101c59ff947062f8f68",
+                "title":"Surfing in Tofino",
+                "startTime":"2015-06-25T14:15:00.000Z",
+                "endTime":"2015-06-25T20:15:00.000Z",
+                "duration":6,
+                "daysRunning":[0,1,2,3],
+                "maxOcc":5,
+                "minOcc":2,
+                "charges":[
+                    {
+                        "description":"Adult Price",
+                        "type":"adult",
+                        "amount":120
+                    },
+                    {
+                        "description":"Youth Price",
+                        "type":"youth",
+                        "amount":105
+                    }
+                ]
+            }
+        ]
+    }]
 }
 ```
 
 ```php
 <?php
 // Array Object
+
 [
-  "activities" => [
-    [
-      "id" => "552ea021a09742a705853cf8"
-      "title" => "High Seas Catamaran Adventure",
-      "operator" =>  "Sea Breeze Adventures",
-      "startDate" => "Wed Apr 15 2015 00 => 00 => 00 GMT-0700 (PDT)",
-      "endDate" => "Wed Apr 29 2015 00 => 00 => 00 GMT-0700 (PDT)",
-      "tz" => "America/Los_Angeles",
-      "youthPrice" => 50,
-      "adultPrice" => 100,
-      "category" => "Land",
-      "rating" => "Beginners",
-      "mainDescription" => "This text can be between 200 and 1000 characters.",
-      "image_lg" => "https://images.adventurebucketlist.com/blue.jpg",
-      "image_array" => ["https://images.adventurebucketlist.com/blue.jpg"],
-      "addons" => [["amount" => 14.00,"label" => "Lunch","description" => "Your choice of sandwich, chips and soda"]],
-      "taxes" => [["type" => "percentage","amount" => 5.13,"description" => "VAT"]],
-      "unifiedDuration" => false,
-      "unifiedOcc" => false,
-      "unifiedPrice" => true,
-      "whatIncluded" => ["snorkel","fins","light snack"],
-      "requirements" => ["must be able to swim"],
-      "whatToBring" => ["sunscreen","swimsuit","sunglasses","towel"],
-      "location" => [
-        [
-          "locationTag" => "Main Location",
-          "coordinates" => [-121.8983,37.3],
-          "country" => "United States",
-          "state" => "California",
-          "city" => "San Jose",
-          "street_address" => "664 N 2nd St, San Jose, CA 95112, USA"
-        ]
-      ],
-      "timeslots" => [
-        [
-          "daysRunning" => [1,3,6],
-          "deposit" => 0,
-          "startTime" => "2015-04-15T17 => 00 => 00.000Z",
-          "minOcc" => 1,
-          "maxOcc" => 7,
-          "duration" => 3,
-          "eventId":"8b8ctkgnngr2pi1cotb872oubg"
-        ]
+  "activities" =>  [
+  [
+    "tz" => "America/Mexico_City",
+    "title" => "Surfing in Tofino",
+    "mainDescription" => "Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or deep face of a moving wave, which is usually carrying the surfer toward the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or in rivers in the form of a standing wave or tidal bore. However, surfers can also utilize artificial waves such as those from boat wakes and the waves created in artificial wave pools.",
+    "rating" => "Intermediate",
+    "category" => "Water",
+    "companyName" => "Worldwide Surf Adventures",
+    "location" =>  [
+      "streetAddress" => "10 Main Street, Vancouver, BC V6J, Canada",
+      "city" => "Vancouver",
+      "state" => "British Columbia",
+      "country" => "Canada",
+      "location" => [
+        "coordinates" => [
+          -123.1383701,
+          49.2686033
+        ],
+        "type" => "Point"
+      ],
+      "type" => "tour",
+      "tag" => "Main Location"
+    ],
+    "image" => "https => //photos.ablsolution.com/photo1",
+    "status" => "active",
+    "images" =>  [
+      "https => //photos.ablsolution.com/photo1.jpg",
+      "https => //photos.ablsolution.com/photo2.jpg"
+    ],
+    "whatIncluded" => [
+      "Lunch",
+      "Transportation",
+      "Lessons"
+    ],
+    "requirements" => [
+      "Must be able to swim"
+    ],
+    "whatToBring" => [
+      "bathing suit",
+      "Sunscreen"
+    ],
+    "charges" => [
+      [
+        "description" => "gst",
+        "amount" => 7,
+        "type" => "tax"
       ]
-    }
+    ],
+    "timeslots" => [
+      [
+        "user" => "558b0101c59ff947062f8f68",
+        "title" => "Surfing in Tofino",
+        "startTime" => "2015-06-25T14 => 15 => 00.000Z",
+        "endTime" => "2015-06-25T20 => 15 => 00.000Z",
+        "duration" => 6,
+        "daysRunning" => [0,1,2,3],
+        "maxOcc" => 5,
+        "minOcc" => 2,
+        "charges" => [
+          [
+            "description" => "Adult Price",
+            "type" => "adult",
+            "amount" => 120
+          ],
+          [
+            "description" => "Youth Price",
+            "type" => "youth",
+            "amount" => 105
+          ]
+        ]
+      ]
+    ]
   ]
-}
+]
 ?>
 ```
 
@@ -326,48 +435,76 @@ X-Rate-Limit-Remaining: 119
 X-Rate-Limit-Reset: 1424380431341
 
 {
-  "id":"552ea021a09742a705853cf8"
-    "title":"High Seas Catamaran Adventure",
-    "operator": "Sea Breeze Adventures",
-    "startDate":"Wed Apr 15 2015 00:00:00 GMT-0700 (PDT)",
-    "endDate":"Wed Apr 29 2015 00:00:00 GMT-0700 (PDT)",
-    "tz":"America/Los_Angeles",
-    "youthPrice":50,
-    "adultPrice":100,
-    "category":"Land",
-    "rating":"Beginners",
-    "mainDescription":"This text can be between 200 and 1000 characters.",
-    "image_lg":"https://images.adventurebucketlist.com/blue.jpg",
-    "image_array":["https://images.adventurebucketlist.com/blue.jpg"],
-    "addons":[{"amount":14.00,"label":"Lunch","description":"Your choice of sandwich, chips and soda"}],
-    "taxes":[{"type":"percentage","amount":5.13,"description":"VAT"}],
-    "unifiedDuration":false,
-    "unifiedOcc":false,
-    "unifiedPrice":true,
-    "whatIncluded":["snorkel","fins","light snack"],
-    "requirements":["must be able to swim"],
-    "whatToBring":["sunscreen","swimsuit","sunglasses","towel"],
-    "location":[
-    {
-      "locationTag":"Main Location",
-      "coordinates":[-121.8983,37.3],
-      "country":"United States",
-      "state":"California",
-      "city":"San Jose",
-      "street_address":"664 N 2nd St, San Jose, CA 95112, USA"
-    }
+  "tz":"America/Mexico_City",
+  "title":"Surfing in Tofino",
+  "mainDescription":"Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or deep face of a moving wave, which is usually carrying the surfer toward the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or in rivers in the form of a standing wave or tidal bore. However, surfers can also utilize artificial waves such as those from boat wakes and the waves created in artificial wave pools.",
+  "rating":"Intermediate",
+  "category":"Water",
+  "companyName":"Worldwide Surf Adventures",
+  "location": {
+    "streetAddress":"10 Main Street, Vancouver, BC V6J, Canada",
+    "city":"Vancouver",
+    "state":"British Columbia",
+    "country":"Canada",
+    "location": {
+      "coordinates": [
+        -123.1383701,
+        49.2686033
+      ],
+      "type":"Point"
+    },
+    "type":"tour",
+    "tag":"Main Location"
+  },
+  "image":"https://photos.ablsolution.com/photo1",
+  "status":"active",
+  "images": [
+    "https://photos.ablsolution.com/photo1.jpg",
+    "https://photos.ablsolution.com/photo2.jpg"
   ],
-    "timeslots":[
+  "whatIncluded": [
+    "Lunch",
+    "Transportation",
+    "Lessons"
+  ],
+  "requirements": [
+    "Must be able to swim"
+  ],
+  "whatToBring": [
+    "bathing suit",
+    "Sunscreen"
+  ],
+  "charges": [
     {
-      "daysRunning":[1,3,6],
-      "deposit":0,
-      "startTime":"2015-04-15T17:00:00.000Z",
-      "minOcc":1,
-      "maxOcc":7,
-      "duration":3,
-      "eventId":"8b8ctkgnngr2pi1cotb872oubg"
+      "description":"gst",
+      "amount":7,
+      "type":"tax"
     }
-  ]
+  ],
+  "timeslots":[
+    {
+      "user":"558b0101c59ff947062f8f68",
+      "title":"Surfing in Tofino",
+      "startTime":"2015-06-25T14:15:00.000Z",
+      "endTime":"2015-06-25T20:15:00.000Z",
+      "duration":6,
+      "daysRunning":[0,1,2,3],
+      "maxOcc":5,
+      "minOcc":2,
+      "charges":[
+        {
+          "description":"Adult Price",
+          "type":"adult",
+          "amount":120
+        },
+        {
+          "description":"Youth Price",
+          "type":"youth",
+          "amount":105
+        }
+      ]
+    }
+  ]
 }
 
 ```
@@ -383,96 +520,152 @@ end
 ```python
 # Dict Object
 {
-  "id":"552ea021a09742a705853cf8"
-    "title":"High Seas Catamaran Adventure",
-    "operator": "Sea Breeze Adventures",
-    "startDate":"Wed Apr 15 2015 00:00:00 GMT-0700 (PDT)",
-    "endDate":"Wed Apr 29 2015 00:00:00 GMT-0700 (PDT)",
-    "tz":"America/Los_Angeles",
-    "youthPrice":50,
-    "adultPrice":100,
-    "category":"Land",
-    "rating":"Beginners",
-    "mainDescription":"This text can be between 200 and 1000 characters.",
-    "image_lg":"https://images.adventurebucketlist.com/blue.jpg",
-    "image_array":["https://images.adventurebucketlist.com/blue.jpg"],
-    "addons":[{"amount":14.00,"label":"Lunch","description":"Your choice of sandwich, chips and soda"}],
-    "taxes":[{"type":"percentage","amount":5.13,"description":"VAT"}],
-    "unifiedDuration":false,
-    "unifiedOcc":false,
-    "unifiedPrice":true,
-    "whatIncluded":["snorkel","fins","light snack"],
-    "requirements":["must be able to swim"],
-    "whatToBring":["sunscreen","swimsuit","sunglasses","towel"],
-    "location":[
-    {
-      "locationTag":"Main Location",
-      "coordinates":[-121.8983,37.3],
-      "country":"United States",
-      "state":"California",
-      "city":"San Jose",
-      "street_address":"664 N 2nd St, San Jose, CA 95112, USA"
-    }
+  "tz":"America/Mexico_City",
+  "title":"Surfing in Tofino",
+  "mainDescription":"Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or deep face of a moving wave, which is usually carrying the surfer toward the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or in rivers in the form of a standing wave or tidal bore. However, surfers can also utilize artificial waves such as those from boat wakes and the waves created in artificial wave pools.",
+  "rating":"Intermediate",
+  "category":"Water",
+  "companyName":"Worldwide Surf Adventures",
+  "location": {
+    "streetAddress":"10 Main Street, Vancouver, BC V6J, Canada",
+    "city":"Vancouver",
+    "state":"British Columbia",
+    "country":"Canada",
+    "location": {
+      "coordinates": [
+        -123.1383701,
+        49.2686033
+      ],
+      "type":"Point"
+    },
+    "type":"tour",
+    "tag":"Main Location"
+  },
+  "image":"https://photos.ablsolution.com/photo1",
+  "status":"active",
+  "images": [
+    "https://photos.ablsolution.com/photo1.jpg",
+    "https://photos.ablsolution.com/photo2.jpg"
   ],
-    "timeslots":[
+  "whatIncluded": [
+    "Lunch",
+    "Transportation",
+    "Lessons"
+  ],
+  "requirements": [
+    "Must be able to swim"
+  ],
+  "whatToBring": [
+    "bathing suit",
+    "Sunscreen"
+  ],
+  "charges": [
     {
-      "daysRunning":[1,3,6],
-      "deposit":0,
-      "startTime":"2015-04-15T17:00:00.000Z",
-      "minOcc":1,
-      "maxOcc":7,
-      "duration":3,
-      "eventId":"8b8ctkgnngr2pi1cotb872oubg"
+      "description":"gst",
+      "amount":7,
+      "type":"tax"
     }
-  ]
+  ],
+  "timeslots":[
+    {
+      "user":"558b0101c59ff947062f8f68",
+      "title":"Surfing in Tofino",
+      "startTime":"2015-06-25T14:15:00.000Z",
+      "endTime":"2015-06-25T20:15:00.000Z",
+      "duration":6,
+      "daysRunning":[0,1,2,3],
+      "maxOcc":5,
+      "minOcc":2,
+      "charges":[
+        {
+          "description":"Adult Price",
+          "type":"adult",
+          "amount":120
+        },
+        {
+          "description":"Youth Price",
+          "type":"youth",
+          "amount":105
+        }
+      ]
+    }
+  ]
 }
 ```
 
 ```javascript
 // Json Object
 {
-  "id":"552ea021a09742a705853cf8"
-    "title":"High Seas Catamaran Adventure",
-    "operator": "Sea Breeze Adventures",
-    "startDate":"Wed Apr 15 2015 00:00:00 GMT-0700 (PDT)",
-    "endDate":"Wed Apr 29 2015 00:00:00 GMT-0700 (PDT)",
-    "tz":"America/Los_Angeles",
-    "youthPrice":50,
-    "adultPrice":100,
-    "category":"Land",
-    "rating":"Beginners",
-    "mainDescription":"This text can be between 200 and 1000 characters.",
-    "image_lg":"https://images.adventurebucketlist.com/blue.jpg",
-    "image_array":["https://images.adventurebucketlist.com/blue.jpg"],
-    "addons":[{"amount":14.00,"label":"Lunch","description":"Your choice of sandwich, chips and soda"}],
-    "taxes":[{"type":"percentage","amount":5.13,"description":"VAT"}],
-    "unifiedDuration":false,
-    "unifiedOcc":false,
-    "unifiedPrice":true,
-    "whatIncluded":["snorkel","fins","light snack"],
-    "requirements":["must be able to swim"],
-    "whatToBring":["sunscreen","swimsuit","sunglasses","towel"],
-    "location":[
-    {
-      "locationTag":"Main Location",
-      "coordinates":[-121.8983,37.3],
-      "country":"United States",
-      "state":"California",
-      "city":"San Jose",
-      "street_address":"664 N 2nd St, San Jose, CA 95112, USA"
-    }
+  "tz":"America/Mexico_City",
+  "title":"Surfing in Tofino",
+  "mainDescription":"Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or deep face of a moving wave, which is usually carrying the surfer toward the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or in rivers in the form of a standing wave or tidal bore. However, surfers can also utilize artificial waves such as those from boat wakes and the waves created in artificial wave pools.",
+  "rating":"Intermediate",
+  "category":"Water",
+  "companyName":"Worldwide Surf Adventures",
+  "location": {
+    "streetAddress":"10 Main Street, Vancouver, BC V6J, Canada",
+    "city":"Vancouver",
+    "state":"British Columbia",
+    "country":"Canada",
+    "location": {
+      "coordinates": [
+        -123.1383701,
+        49.2686033
+      ],
+      "type":"Point"
+    },
+    "type":"tour",
+    "tag":"Main Location"
+  },
+  "image":"https://photos.ablsolution.com/photo1",
+  "status":"active",
+  "images": [
+    "https://photos.ablsolution.com/photo1.jpg",
+    "https://photos.ablsolution.com/photo2.jpg"
   ],
-    "timeslots":[
+  "whatIncluded": [
+    "Lunch",
+    "Transportation",
+    "Lessons"
+  ],
+  "requirements": [
+    "Must be able to swim"
+  ],
+  "whatToBring": [
+    "bathing suit",
+    "Sunscreen"
+  ],
+  "charges": [
     {
-      "daysRunning":[1,3,6],
-      "deposit":0,
-      "startTime":"2015-04-15T17:00:00.000Z",
-      "minOcc":1,
-      "maxOcc":7,
-      "duration":3,
-      "eventId":"8b8ctkgnngr2pi1cotb872oubg"
+      "description":"gst",
+      "amount":7,
+      "type":"tax"
     }
-  ]
+  ],
+  "timeslots":[
+    {
+      "user":"558b0101c59ff947062f8f68",
+      "title":"Surfing in Tofino",
+      "startTime":"2015-06-25T14:15:00.000Z",
+      "endTime":"2015-06-25T20:15:00.000Z",
+      "duration":6,
+      "daysRunning":[0,1,2,3],
+      "maxOcc":5,
+      "minOcc":2,
+      "charges":[
+        {
+          "description":"Adult Price",
+          "type":"adult",
+          "amount":120
+        },
+        {
+          "description":"Youth Price",
+          "type":"youth",
+          "amount":105
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -480,46 +673,74 @@ end
 <?php
 // Array Object
 [
-  "id" => "552ea021a09742a705853cf8"
-  "title" => "High Seas Catamaran Adventure",
-  "operator" =>  "Sea Breeze Adventures",
-  "startDate" => "Wed Apr 15 2015 00 => 00 => 00 GMT-0700 (PDT)",
-  "endDate" => "Wed Apr 29 2015 00 => 00 => 00 GMT-0700 (PDT)",
-  "tz" => "America/Los_Angeles",
-  "youthPrice" => 50,
-  "adultPrice" => 100,
-  "category" => "Land",
-  "rating" => "Beginners",
-  "mainDescription" => "This text can be between 200 and 1000 characters.",
-  "image_lg" => "https://images.adventurebucketlist.com/blue.jpg",
-  "image_array" => ["https://images.adventurebucketlist.com/blue.jpg"],
-  "addons" => [["amount" => 14.00,"label" => "Lunch","description" => "Your choice of sandwich, chips and soda"]],
-  "taxes" => [["type" => "percentage","amount" => 5.13,"description" => "VAT"]],
-  "unifiedDuration" => false,
-  "unifiedOcc" => false,
-  "unifiedPrice" => true,
-  "whatIncluded" => ["snorkel","fins","light snack"],
-  "requirements" => ["must be able to swim"],
-  "whatToBring" => ["sunscreen","swimsuit","sunglasses","towel"],
-  "location" => [
+  "tz" => "America/Mexico_City",
+  "title" => "Surfing in Tofino",
+  "mainDescription" => "Surfing is a surface water sport in which the wave rider, referred to as a surfer, rides on the forward or deep face of a moving wave, which is usually carrying the surfer toward the shore. Waves suitable for surfing are primarily found in the ocean, but can also be found in lakes or in rivers in the form of a standing wave or tidal bore. However, surfers can also utilize artificial waves such as those from boat wakes and the waves created in artificial wave pools.",
+  "rating" => "Intermediate",
+  "category" => "Water",
+  "companyName" => "Worldwide Surf Adventures",
+  "location" =>  [
+    "streetAddress" => "10 Main Street, Vancouver, BC V6J, Canada",
+    "city" => "Vancouver",
+    "state" => "British Columbia",
+    "country" => "Canada",
+    "location" => [
+      "coordinates" => [
+        -123.1383701,
+        49.2686033
+      ],
+      "type" => "Point"
+    ],
+    "type" => "tour",
+    "tag" => "Main Location"
+  ],
+  "image" => "https => //photos.ablsolution.com/photo1",
+  "status" => "active",
+  "images" =>  [
+    "https => //photos.ablsolution.com/photo1.jpg",
+    "https => //photos.ablsolution.com/photo2.jpg"
+  ],
+  "whatIncluded" => [
+    "Lunch",
+    "Transportation",
+    "Lessons"
+  ],
+  "requirements" => [
+    "Must be able to swim"
+  ],
+  "whatToBring" => [
+    "bathing suit",
+    "Sunscreen"
+  ],
+  "charges" => [
     [
-      "locationTag" => "Main Location",
-      "coordinates" => [-121.8983,37.3],
-      "country" => "United States",
-      "state" => "California",
-      "city" => "San Jose",
-      "street_address" => "664 N 2nd St, San Jose, CA 95112, USA"
+      "description" => "gst",
+      "amount" => 7,
+      "type" => "tax"
     ]
   ],
   "timeslots" => [
     [
-      "daysRunning" => [1,3,6],
-      "deposit" => 0,
-      "startTime" => "2015-04-15T17 => 00 => 00.000Z",
-      "minOcc" => 1,
-      "maxOcc" => 7,
-      "duration" => 3,
-      "eventId":"8b8ctkgnngr2pi1cotb872oubg"
+      "user" => "558b0101c59ff947062f8f68",
+      "title" => "Surfing in Tofino",
+      "startTime" => "2015-06-25T14 => 15 => 00.000Z",
+      "endTime" => "2015-06-25T20 => 15 => 00.000Z",
+      "duration" => 6,
+      "daysRunning" => [0,1,2,3],
+      "maxOcc" => 5,
+      "minOcc" => 2,
+      "charges" => [
+        [
+          "description" => "Adult Price",
+          "type" => "adult",
+          "amount" => 120
+        ],
+        [
+          "description" => "Youth Price",
+          "type" => "youth",
+          "amount" => 105
+        ]
+      ]
     ]
   ]
 ]
