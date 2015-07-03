@@ -76,6 +76,16 @@ lastResponse->getLastPage()
 ?>
 ```
 
+Here are the possible headers values:
+
+Header | Description
+--- | ---
+X-Next-Page-Url	| Shows the URL of the immediate next page of results.
+X-Last-Page-Url	| Shows the URL of the last page of results.
+X-First-Page-Url | Shows the URL of the first page of results.
+X-Prev-Page-Url	| Shows the URL of the immediate previous page of results.
+
+
 The `X-Next-Page-Url` header tells us that the next page is `page=2`.  For the first call using this query, this makes sense, because we expect to be on `page=1` currently. The `X-Last-Page-Url` header provides even more information, telling us we have 33 more pages of data we could request.
 
 The ABL API Clients make getting any page easy.
