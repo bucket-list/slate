@@ -1,0 +1,1759 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Adventure Bucket List API",
+        "version": "1.0",
+        "description": "Adventure Bucket List provides developers with a simple and powerful REST API to integrate your applications with our Activities Marketplace, enabling you to display activity information and availability in real time and create bookings.",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "email": "support@adventurebucketlist.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "x-logo": {
+            "url": "https://assets.ablsolution.com/corp/logo-inverse.png",
+            "backgroundColor": "#FFFFFF"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://dashboard.adventurebucketlist.com/api/v1/"
+        }
+    ],
+    "paths": {
+        "/me": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/loginProfile"
+                                }
+                            }
+                        },
+                        "description": "successful operation"
+                    }
+                },
+                "summary": "User",
+                "description": "Returns current logged in users data",
+                "x-summary": "Return all relevant user details as a single object",
+                "x-code-samples": {
+                    "lang": "javascript",
+                    "label": "node",
+                    "source": "{ 'id': '59f90968af8286149d5b1f08' }"
+                }
+            }
+        },
+        "/activities": {
+            "get": {
+                "parameters": [
+                    {
+                        "examples": {
+                            "pageSize": {
+                                "value": "100"
+                            }
+                        },
+                        "name": "pageSize",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "page",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "examples": {
+                            "Default": {
+                                "value": "false"
+                            }
+                        },
+                        "name": "noEmpty",
+                        "schema": {
+                            "type": "boolean"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "startDate",
+                        "schema": {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "examples": {
+                            "Start Time": {
+                                "value": "\"2018-02-10T09:30Z\""
+                            }
+                        },
+                        "name": "endDate",
+                        "schema": {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "X-ABL-ACCESS-KEY",
+                        "description": "Should contain merchant ID obtained from get code section of the Dashboard.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Activity"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "successful operation"
+                    }
+                },
+                "summary": "Activities",
+                "description": "Returns a list of valid activities for the current operator"
+            }
+        },
+        "/timeslots": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "activity",
+                        "schema": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "status[event]",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "pageSize",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "page",
+                        "schema": {
+                            "type": "number"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "startDate",
+                        "schema": {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "in": "query"
+                    },
+                    {
+                        "name": "endDate",
+                        "schema": {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TimeSlot"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "successful operation"
+                    }
+                },
+                "summary": "Timeslots",
+                "description": "Returns a list of active timeslots for the activity"
+            }
+        },
+        "/pricing-quotes": {
+            "summary": "Pricing Quote",
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    }
+                },
+                "summary": "Pricing Quote"
+            },
+            "parameters": [
+                {
+                    "name": "X-ABL-ACCESS-KEY",
+                    "description": "Merchant ID obtained from the get code section in the Dashboard",
+                    "schema": {
+
+                    },
+                    "in": "header"
+                }
+            ]
+        },
+        "/bookings": {
+            "post": {
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+
+                        }
+                    },
+                    "required": true
+                },
+                "parameters": [
+                    {
+                        "name": "X-ABL-ACCESS-KEY",
+                        "description": "Should contain merchant ID obtained from get code section of the Dashboard.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/BookingResponse"
+                                },
+                                "examples": {
+                                    "Sample Booking response": {
+                                        "value": {
+                                            "booking": {
+                                                "_id": "",
+                                                "organizations": [
+                                                    "",
+                                                    ""
+                                                ],
+                                                "activity": "",
+                                                "apiKey": "",
+                                                "transaction": "",
+                                                "answers": [
+                                                    "",
+                                                    ""
+                                                ],
+                                                "clientData": {
+                                                    "email": "some text",
+                                                    "fullName": "some text",
+                                                    "phoneNumber": "some text"
+                                                },
+                                                "bookingId": "some text",
+                                                "checkin": "2018-02-10T09:30Z",
+                                                "eventInstanceId": "some text",
+                                                "isMobile": true,
+                                                "notes": "some text",
+                                                "startTime": "2018-02-10T09:30Z",
+                                                "timeZone": "some text",
+                                                "metadata": {
+
+                                                },
+                                                "title": "some text",
+                                                "status": "failed"
+                                            },
+                                            "Transaction": {
+                                                "organization": "",
+                                                "items": [
+                                                    {
+                                                        "name": "some text",
+                                                        "price": 17,
+                                                        "percent": 18,
+                                                        "quantity": 0,
+                                                        "type": "aup",
+                                                        "owner": "abl"
+                                                    },
+                                                    {
+                                                        "name": "some text",
+                                                        "price": 17,
+                                                        "percent": 94,
+                                                        "quantity": 47,
+                                                        "type": "addon",
+                                                        "owner": "abl"
+                                                    }
+                                                ],
+                                                "itemHistory": [
+                                                    {
+                                                        "name": "some text",
+                                                        "price": 30,
+                                                        "percent": 25,
+                                                        "quantity": 9,
+                                                        "type": "addon",
+                                                        "owner": "abl"
+                                                    },
+                                                    {
+                                                        "name": "some text",
+                                                        "price": 4,
+                                                        "percent": 41,
+                                                        "quantity": 94,
+                                                        "type": "one_time-credit",
+                                                        "owner": "abl"
+                                                    }
+                                                ],
+                                                "paymentStates": [
+                                                    {
+                                                        "type": "other",
+                                                        "id": "some text",
+                                                        "amount": 62,
+                                                        "method": "gift"
+                                                    },
+                                                    {
+                                                        "type": "stripe",
+                                                        "id": "some text",
+                                                        "amount": 97,
+                                                        "method": "credit"
+                                                    }
+                                                ],
+                                                "payments": [
+                                                    {
+                                                        "amount": 77,
+                                                        "applicationFee": 75,
+                                                        "currency": "usd",
+                                                        "id": "some text",
+                                                        "method": "transfer"
+                                                    },
+                                                    {
+                                                        "amount": 55,
+                                                        "applicationFee": 20,
+                                                        "currency": "cad",
+                                                        "id": "some text",
+                                                        "method": "cash"
+                                                    }
+                                                ],
+                                                "refunds": [
+                                                    {
+                                                        "ids": [
+                                                            "some text",
+                                                            "some text"
+                                                        ],
+                                                        "method": "cash",
+                                                        "amount": 69,
+                                                        "description": "some text",
+                                                        "thirdPartyData": [
+                                                            {
+
+                                                            },
+                                                            {
+
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "ids": [
+                                                            "some text",
+                                                            "some text"
+                                                        ],
+                                                        "method": "transfer",
+                                                        "amount": 4,
+                                                        "description": "some text",
+                                                        "thirdPartyData": [
+                                                            {
+
+                                                            },
+                                                            {
+
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "stripeCustomer": {
+
+                                                },
+                                                "coupon": "",
+                                                "itemTotal": 73,
+                                                "paymentTotal": 65,
+                                                "amountOwed": 40
+                                            },
+                                            "modifiedPaths": {
+
+                                            },
+                                            "iframeHtml": {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Booking Successful"
+                    }
+                },
+                "summary": "Bookings"
+            }
+        },
+        "/events/:eventInstanceId": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "X-ABL-ACCESS-KEY",
+                        "description": "Should contain merchant ID obtained from get code section of the Dashboard.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Event"
+                                },
+                                "examples": {
+                                    "Success response": {
+                                        "value": {
+                                            "_id": "",
+                                            "organizations": [
+                                                "",
+                                                ""
+                                            ],
+                                            "timeslot": "",
+                                            "guides": [
+                                                "",
+                                                ""
+                                            ],
+                                            "bookings": [
+                                                "",
+                                                ""
+                                            ],
+                                            "calendarId": "some text",
+                                            "eventInstanceId": "some text",
+                                            "startTime": "2018-02-10T09:30Z",
+                                            "endTime": "2018-02-10T09:30Z",
+                                            "originalStartTime": "2018-02-10T09:30Z",
+                                            "originalEndTime": "2018-02-10T09:30Z",
+                                            "timeZone": "some text",
+                                            "attendees": 6,
+                                            "occupancy": 76,
+                                            "status": "inactive",
+                                            "title": "some text",
+                                            "originalTitle": "some text",
+                                            "description": "some text",
+                                            "originalDescription": "some text"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Returns event details"
+                    }
+                },
+                "summary": "Event"
+            }
+        },
+        "/activities/:activityId": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "X-ABL-ACCESS-KEY",
+                        "description": "Should contain merchant ID obtained from get code section of the Dashboard.",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Activity"
+                                },
+                                "examples": {
+                                    "Success response": {
+                                        "value": {
+                                            "_id": "",
+                                            "organizations": [
+                                                "",
+                                                ""
+                                            ],
+                                            "timeslots": [
+                                                "",
+                                                ""
+                                            ],
+                                            "charges": [
+                                                "",
+                                                ""
+                                            ],
+                                            "questions": [
+                                                "",
+                                                ""
+                                            ],
+                                            "location": "",
+                                            "color": "FFCC33",
+                                            "cutoff": 51,
+                                            "isListed": true,
+                                            "requirements": [
+                                                "some text",
+                                                "some text"
+                                            ],
+                                            "timeZone": "some text",
+                                            "whatIncluded": [
+                                                "some text",
+                                                "some text"
+                                            ],
+                                            "whatToBring": [
+                                                "some text",
+                                                "some text"
+                                            ],
+                                            "published": true,
+                                            "widgetOrder": 21,
+                                            "status": "inactive",
+                                            "title": "some text",
+                                            "originalTitle": "some text",
+                                            "description": "some text",
+                                            "originalDescription": "some text",
+                                            "images": [
+                                                "some text",
+                                                "some text"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Returns activity details"
+                    }
+                },
+                "summary": "Activity"
+            }
+        },
+        "/events/list": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "startTime",
+                        "description": "",
+                        "schema": {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "name": "endTime",
+                        "description": "",
+                        "schema": {
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Event"
+                                    }
+                                },
+                                "examples": {
+                                    "Success response": {
+                                        "value": [
+                                            {
+                                                "_id": "",
+                                                "organizations": [
+                                                    "",
+                                                    ""
+                                                ],
+                                                "timeslot": "",
+                                                "guides": [
+                                                    "",
+                                                    ""
+                                                ],
+                                                "bookings": [
+                                                    "",
+                                                    ""
+                                                ],
+                                                "calendarId": "some text",
+                                                "eventInstanceId": "some text",
+                                                "startTime": "2018-02-10T09:30Z",
+                                                "endTime": "2018-02-10T09:30Z",
+                                                "originalStartTime": "2018-02-10T09:30Z",
+                                                "originalEndTime": "2018-02-10T09:30Z",
+                                                "timeZone": "some text",
+                                                "attendees": 43,
+                                                "occupancy": 2,
+                                                "status": "inactive",
+                                                "title": "some text",
+                                                "originalTitle": "some text",
+                                                "description": "some text",
+                                                "originalDescription": "some text"
+                                            },
+                                            {
+                                                "_id": "",
+                                                "organizations": [
+                                                    "",
+                                                    ""
+                                                ],
+                                                "timeslot": "",
+                                                "guides": [
+                                                    "",
+                                                    ""
+                                                ],
+                                                "bookings": [
+                                                    "",
+                                                    ""
+                                                ],
+                                                "calendarId": "some text",
+                                                "eventInstanceId": "some text",
+                                                "startTime": "2018-02-10T09:30Z",
+                                                "endTime": "2018-02-10T09:30Z",
+                                                "originalStartTime": "2018-02-10T09:30Z",
+                                                "originalEndTime": "2018-02-10T09:30Z",
+                                                "timeZone": "some text",
+                                                "attendees": 47,
+                                                "occupancy": 79,
+                                                "status": "active",
+                                                "title": "some text",
+                                                "originalTitle": "some text",
+                                                "description": "some text",
+                                                "originalDescription": "some text"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Returns list of events for the requested date range"
+                    }
+                },
+                "summary": "Event list"
+            },
+            "parameters": [
+                {
+                    "name": "X-ABL-ACCESS-KEY",
+                    "description": "Should contain merchant ID obtained from get code section of the Dashboard.",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "header",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "AAP": {
+                "type": "object",
+                "properties": {
+                    "organizations": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "Activity": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "organizations": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "timeslots": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "charges": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "questions": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "location": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "color": {
+                        "enum": [
+                            "336633",
+                            "338833",
+                            "339933",
+                            "33CC33",
+                            "33FF33",
+                            "663333",
+                            "993333",
+                            "33FFFF",
+                            "33CCCC",
+                            "339999",
+                            "336666",
+                            "3333FF",
+                            "3333CC",
+                            "333399",
+                            "333366",
+                            "CC6600",
+                            "FF9933",
+                            "663366",
+                            "993399",
+                            "CC33CC",
+                            "FF33FF",
+                            "FFCC33",
+                            "CC9933"
+                        ],
+                        "type": "string"
+                    },
+                    "cutoff": {
+                        "type": "integer"
+                    },
+                    "isListed": {
+                        "type": "boolean"
+                    },
+                    "requirements": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "timeZone": {
+                        "type": "string"
+                    },
+                    "whatIncluded": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "whatToBring": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "published": {
+                        "type": "boolean"
+                    },
+                    "widgetOrder": {
+                        "type": "integer"
+                    },
+                    "status": {
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ],
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "originalTitle": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "originalDescription": {
+                        "type": "string"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "ApiKey": {
+                "type": "object",
+                "properties": {
+                    "user": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "organizations": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "publicKey": {
+                        "type": "string"
+                    },
+                    "privateKey": {
+                        "type": "string"
+                    },
+                    "label": {
+                        "type": "string"
+                    },
+                    "permissions": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    },
+                    "netMaskV4": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "netMaskV6": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "public": {
+                        "type": "boolean"
+                    },
+                    "status": {
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "Event": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "organizations": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "timeslot": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "guides": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "bookings": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "calendarId": {
+                        "type": "string"
+                    },
+                    "eventInstanceId": {
+                        "type": "string"
+                    },
+                    "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "originalStartTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "originalEndTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "timeZone": {
+                        "type": "string"
+                    },
+                    "attendees": {
+                        "type": "integer"
+                    },
+                    "occupancy": {
+                        "type": "integer"
+                    },
+                    "status": {
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ],
+                        "type": "string"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "originalTitle": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "originalDescription": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Booking": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "organizations": {
+                        "description": "[Operator, Affiliate, Client]",
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "activity": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "apiKey": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "transaction": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "answers": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "clientData": {
+                        "type": "object",
+                        "properties": {
+                            "email": {
+                                "type": "string"
+                            },
+                            "fullName": {
+                                "type": "string"
+                            },
+                            "phoneNumber": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "bookingId": {
+                        "type": "string"
+                    },
+                    "checkin": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "eventInstanceId": {
+                        "type": "string"
+                    },
+                    "isMobile": {
+                        "type": "boolean"
+                    },
+                    "notes": {
+                        "type": "string"
+                    },
+                    "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "timeZone": {
+                        "type": "string"
+                    },
+                    "metadata": {
+                        "type": "object"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "status": {
+                        "enum": [
+                            "paid",
+                            "unpaid",
+                            "cancelled",
+                            "refunded",
+                            "failed"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "TimeSlot": {
+                "type": "object",
+                "properties": {
+                    "organizations": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "activity": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "guides": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "events": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "charges": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "calendarId": {
+                        "type": "string"
+                    },
+                    "eventId": {
+                        "type": "string"
+                    },
+                    "timeZone": {
+                        "type": "string"
+                    },
+                    "single": {
+                        "default": false,
+                        "type": "boolean"
+                    },
+                    "daysRunning": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "originalDaysRunning": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "startTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "originalStartTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "endTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "originalEndTime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "untiltime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "originalUntiltime": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                }
+            },
+            "Transaction": {
+                "type": "object",
+                "properties": {
+                    "organization": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "price": {
+                                    "type": "integer"
+                                },
+                                "percent": {
+                                    "type": "integer"
+                                },
+                                "quantity": {
+                                    "type": "integer"
+                                },
+                                "type": {
+                                    "enum": [
+                                        "aap",
+                                        "aup",
+                                        "addon",
+                                        "tax",
+                                        "fee",
+                                        "one_time-charge",
+                                        "one_time-credit",
+                                        "coupon"
+                                    ],
+                                    "type": "string"
+                                },
+                                "owner": {
+                                    "description": "Holds the owner to the item, which means who gets the money",
+                                    "enum": [
+                                        "abl"
+                                    ],
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "itemHistory": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "price": {
+                                    "type": "integer"
+                                },
+                                "percent": {
+                                    "type": "integer"
+                                },
+                                "quantity": {
+                                    "type": "integer"
+                                },
+                                "type": {
+                                    "enum": [
+                                        "aap",
+                                        "aup",
+                                        "addon",
+                                        "tax",
+                                        "fee",
+                                        "one_time-charge",
+                                        "one_time-credit",
+                                        "coupon"
+                                    ],
+                                    "type": "string"
+                                },
+                                "owner": {
+                                    "description": "Holds the owner to the item, which means who gets the money",
+                                    "enum": [
+                                        "abl"
+                                    ],
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "paymentStates": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "enum": [
+                                        "stripe",
+                                        "payzen",
+                                        "other"
+                                    ],
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                },
+                                "amount": {
+                                    "type": "integer"
+                                },
+                                "method": {
+                                    "$ref": "#/components/schemas/paymentMethods"
+                                }
+                            }
+                        }
+                    },
+                    "payments": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "amount": {
+                                    "type": "integer"
+                                },
+                                "applicationFee": {
+                                    "type": "integer"
+                                },
+                                "currency": {
+                                    "enum": [
+                                        "usd",
+                                        "cad"
+                                    ],
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "string"
+                                },
+                                "method": {
+                                    "$ref": "#/components/schemas/paymentMethods"
+                                }
+                            }
+                        }
+                    },
+                    "refunds": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "ids": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "method": {
+                                    "$ref": "#/components/schemas/paymentMethods"
+                                },
+                                "amount": {
+                                    "type": "integer"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "thirdPartyData": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "stripeCustomer": {
+                        "type": "object"
+                    },
+                    "coupon": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "itemTotal": {
+                        "type": "integer"
+                    },
+                    "paymentTotal": {
+                        "type": "integer"
+                    },
+                    "amountOwed": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "Organization": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "organizations": {
+                        "type": "array",
+                        "items": {
+                            "format": "ObjectId",
+                            "type": "string"
+                        }
+                    },
+                    "favoritedOperators": {
+                        "type": "object"
+                    },
+                    "applicationFee": {
+                        "type": "integer"
+                    },
+                    "role": {
+                        "type": "string"
+                    },
+                    "groups": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "calendarId": {
+                        "type": "string"
+                    },
+                    "companyName": {
+                        "type": "string"
+                    },
+                    "companyImage": {
+                        "type": "string"
+                    },
+                    "domainName": {
+                        "type": "string"
+                    },
+                    "preferences": {
+                        "type": "object"
+                    },
+                    "social": {
+                        "type": "object",
+                        "properties": {
+                            "facebook": {
+                                "type": "string"
+                            },
+                            "instagram": {
+                                "type": "string"
+                            },
+                            "twitter": {
+                                "type": "string"
+                            },
+                            "tripadvisor": {
+                                "type": "string"
+                            },
+                            "googlePlus": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "primaryContact": {
+                        "type": "object",
+                        "properties": {
+                            "fullName": {
+                                "type": "string"
+                            },
+                            "phoneNumber": {
+                                "type": "string"
+                            },
+                            "email": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "reminder": {
+                        "type": "object"
+                    },
+                    "language": {
+                        "enum": [
+                            "en",
+                            "fr",
+                            "sp"
+                        ],
+                        "type": "string"
+                    },
+                    "languages": {
+                        "type": "object",
+                        "properties": {
+                            "en": {
+                                "type": "boolean"
+                            },
+                            "fr": {
+                                "type": "boolean"
+                            },
+                            "sp": {
+                                "type": "boolean"
+                            }
+                        }
+                    },
+                    "addRulesToPropertiesOnCreate": {
+                        "type": "boolean"
+                    },
+                    "cancellationPolicyDays": {
+                        "type": "integer"
+                    },
+                    "alwaysRefundable": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "NotificationEvent": {
+                "type": "object",
+                "properties": {
+                    "organization": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "isClicked": {
+                        "type": "boolean"
+                    },
+                    "isRead": {
+                        "type": "boolean"
+                    },
+                    "type": {
+                        "enum": [
+                            "event",
+                            "booking",
+                            "guide"
+                        ],
+                        "type": "string"
+                    },
+                    "subtype": {
+                        "enum": [
+                            "created",
+                            "updated",
+                            "deleted",
+                            "payment",
+                            "refund",
+                            "assigned",
+                            "unassigned"
+                        ],
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "object"
+                    }
+                }
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "profilePhoto": {
+                        "format": "url",
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "intercomUserId": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "type": "string"
+                    },
+                    "lang": {
+                        "enum": [
+                            "en",
+                            "fr"
+                        ],
+                        "type": "string"
+                    },
+                    "status": {
+                        "enum": [
+                            "active",
+                            "inactive"
+                        ],
+                        "type": "string"
+                    }
+                }
+            },
+            "coupon": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "object": {
+                        "enum": [
+                            "coupon"
+                        ],
+                        "type": "string"
+                    },
+                    "amount_off": {
+                        "type": "integer"
+                    },
+                    "created": {
+                        "type": "integer"
+                    },
+                    "duration": {
+                        "enum": [
+                            "forever",
+                            "once",
+                            "repeating"
+                        ],
+                        "type": "string"
+                    },
+                    "duration_in_months": {
+                        "type": "integer"
+                    },
+                    "livemode": {
+                        "type": "boolean"
+                    },
+                    "max_redemptions": {
+                        "type": "integer"
+                    },
+                    "metadata": {
+                        "type": "object"
+                    },
+                    "percentage_off": {
+                        "type": "integer"
+                    },
+                    "redeem_by": {
+                        "type": "integer"
+                    },
+                    "times_redeemed": {
+                        "type": "integer"
+                    },
+                    "valid": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "discount": {
+                "type": "object",
+                "properties": {
+                    "object": {
+                        "enum": [
+                            "discount"
+                        ],
+                        "type": "string"
+                    },
+                    "coupon": {
+                        "$ref": "#/components/schemas/coupon"
+                    },
+                    "customer": {
+                        "type": "string"
+                    },
+                    "end": {
+                        "type": "integer"
+                    },
+                    "start": {
+                        "type": "integer"
+                    },
+                    "subscription": {
+                        "type": "string"
+                    }
+                }
+            },
+            "plan": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "object": {
+                        "enum": [
+                            "plan"
+                        ],
+                        "type": "string"
+                    },
+                    "amount": {
+                        "type": "integer"
+                    },
+                    "created": {
+                        "type": "integer"
+                    },
+                    "currency": {
+                        "enum": [
+                            "usd",
+                            "cad"
+                        ],
+                        "type": "string"
+                    },
+                    "interval": {
+                        "enum": [
+                            "month",
+                            "year"
+                        ],
+                        "type": "string"
+                    },
+                    "interval_count": {
+                        "type": "integer"
+                    },
+                    "livemode": {
+                        "type": "boolean"
+                    },
+                    "metadata": {
+                        "type": "object"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "statement_descriptor": {
+                        "type": "string"
+                    },
+                    "trial_period_days": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "subscription": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "object": {
+                        "enum": [
+                            "subscription"
+                        ],
+                        "type": "string"
+                    },
+                    "customer": {
+                        "type": "string"
+                    },
+                    "discount": {
+                        "$ref": "#/components/schemas/discount"
+                    },
+                    "plan": {
+                        "$ref": "#/components/schemas/plan"
+                    }
+                }
+            },
+            "paymentMethods": {
+                "enum": [
+                    "cash",
+                    "credit",
+                    "debit",
+                    "gift",
+                    "transfer"
+                ],
+                "type": "string"
+            },
+            "loginProfile": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "format": "ObjectId",
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "fullName": {
+                        "type": "string"
+                    },
+                    "isEmailVerified": {
+                        "description": "Email verification status",
+                        "type": "boolean"
+                    },
+                    "lang": {
+                        "default": "en",
+                        "type": "string"
+                    },
+                    "apikey": {
+                        "$ref": "#/components/schemas/ApiKey"
+                    },
+                    "organization": {
+                        "$ref": "#/components/schemas/Organization"
+                    },
+                    "subscription": {
+                        "$ref": "#/components/schemas/subscription"
+                    }
+                }
+            },
+            "BookingResponse": {
+                "description": "",
+                "required": [
+                    "booking",
+                    "Transaction"
+                ],
+                "type": "object",
+                "properties": {
+                    "booking": {
+                        "$ref": "#/components/schemas/Booking",
+                        "description": ""
+                    },
+                    "Transaction": {
+                        "$ref": "#/components/schemas/Transaction",
+                        "description": ""
+                    },
+                    "modifiedPaths": {
+                        "description": "Not Applicable for new bookings. Booking modification is not accesible via public API"
+                    },
+                    "iframeHtml": {
+                        "description": "The “iframHtml” value is directly rendered in an iframe. The rendered stripe form in iframe will handle the necessary steps for completing the payment and post a message back to the parent window with payment status, this can be used for user feedback in the frontend.\n    // window.addEventListener(\"message\", function(event) { ... }\n    // Following is the relevant info from the event object \n    {\n      ...\n      data: {\n        type: \"payment_success\" // or \"payment_error\"\n        message: \"\" // Error description if there was an error\n      }\n      ...\n    }\n\nBooking is successful when the “payment_success” message is received, until then the booking will be in “incomplete” status."
+                    }
+                }
+            },
+            "PricingQuoteRequest": {
+                "description": "Simulate a booking to get the expected pricing before the actual booking",
+                "type": "object"
+            }
+        }
+    }
+}
