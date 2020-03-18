@@ -19,7 +19,7 @@
     },
     "servers": [
         {
-            "url": "https://dashboard.adventurebucketlist.com/api/v1/"
+            "url": "https://api.adventurebucketlist.com/api/v1/"
         }
     ],
     "paths": {
